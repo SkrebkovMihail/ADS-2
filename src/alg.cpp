@@ -10,8 +10,8 @@ double pown(double value, uint16_t n) {
     } else if (n == 1) {
         return value;
     } else {
-        double result = pown(value * value, n / 2);
-        return (n % 2 == 0) ? result : value * result;
+        double res = pown(value * value, n / 2);
+        return (n % 2 == 0) ? res : value * res;
     }
 }
 
@@ -20,11 +20,11 @@ uint64_t fact(uint16_t n) {
     if (n == 0 || n == 1) {
         return 1;
     } else {
-        uint64_t result = 1;
+        uint64_t res = 1;
         for (uint16_t i = 2; i <= n; i++) {
-            result *= i;
+            res *= i;
         }
-        return result;
+        return res;
     }
 }
 
@@ -42,21 +42,19 @@ double expn(double x, uint16_t count) {
     return res;
 }
 
+
+
 double sinn(double x, uint16_t count) {
-
-    double sinn(double x, uint16_t count) {
-        long double res = 0.0;
-        for (uint16_t i = 0; i < count; i++) {
-            res += pown(-1, i) / fact(2 * i + 1) * pown(x, 2 * i + 1);
-        }
-        return res;
+    long double res = 0.0;
+    for (uint16_t i = 0; i < count; i++) {
+        res += pown(-1, i) / fact(2 * i + 1) * pown(x, 2 * i + 1);
     }
-
-    double cosn(double x, uint16_t count) {
-
-        long double res = 0.0;
-        for (uint16_t i = 0; i < count; i++) {
-            res += pown(-1, i) * pown(x, 2 * i) / fact(2 * i);
-        }
-        return res;
+    return res;
     }
+double cosn(double x, uint16_t count) {
+    long double res = 0.0;
+    for (uint16_t i = 0; i < count; i++) {
+        res += pown(-1, i) * pown(x, 2 * i) / fact(2 * i);
+    }
+    return res;
+}
